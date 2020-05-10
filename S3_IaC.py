@@ -5,7 +5,10 @@ import uuid
 
 def create_bucket_name(bucket_prefix):
     '''
-    use uuid to create unique bucket name
+    use uuid to create unique bucket name to avoid huge partition size for AWS
+    :param bucket_prefix: prefix of your bucket name
+    
+    :return unique bucket name (string)
     '''
     return ''.join([bucket_prefix,str(uuid.uuid4())])
 
