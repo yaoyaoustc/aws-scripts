@@ -35,10 +35,11 @@ def create_bucket(bucket_prefix, s3_connection):
 def create_file_name(file_name):
     return ''.join([str(uuid.uuid4().hex[:6]), file_name])
 
-def upload_file_s3(local_file_name, bucket_name, s3_connection):
+def upload_file_s3(local_file_name, bucket_name, extra_args, s3_connection):
     s3_file_name = create_file_name(local_file_name)
     s3_connection.Object(bucket_name, s3_file_name) \
-                 .upload_file(Filename = local_file_name)
+                 .upload_file(Filename = local_file_name, \
+                              ExtraArgs = extra_args)
 
 def download_file_s3(file_name, bucket_name, s3_connection, local_path):
     s3_connection.Object(bucket_name,file_name) \
