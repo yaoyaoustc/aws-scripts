@@ -1,12 +1,8 @@
 import boto3
-from S3_IaC import empty_bucket 
+from rdsiac import list_db, create_db_ins, delete_db_ins
 # create a s3 connection using resource
 s3_resource = boto3.resource('s3')
+rds_resource = boto3.client('rds')
 
-file_name = '7bf371README.md'
-local_path = './tmp/'
-extra_args = {
-    'ACL': 'public-read'
-}
-for bucket_name in [bucket_from,bucket_thrid,bucket_to]:
-    s3_resource.Bucket(bucket_name).delete()
+#create_db_ins(rds_resource)
+delete_db_ins(rds_resource)
