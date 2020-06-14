@@ -25,6 +25,7 @@ def create_db_ins(conn):
             Engine='postgres',
             MasterUsername=input_username,
             MasterUserPassword=input_password,
+            DBSecurityGroups=['postgres-homeaccess'],
             )
         print(response)
     except Exception as error:
